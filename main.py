@@ -25,20 +25,16 @@ class MainLayout(BoxLayout):
     def translate(source, target, text, *args):
         if not text:
             return 'provide a text to translate'
+
         res = GoogleTranslator(source=source, target=target).translate(payload=text)
+        if target == 'arabic':
+            res = get_display(arabic_reshaper.reshape(res))
         return res
 
-    # def do_layout(self, *args, **kwargs):
-    #     super(MainLayout, self).do_layout()
-    #     width, height = Window.size
-    #     if width > 500:
-    #         # Window.size = 500, Window.size[1]
-    #         return
-    #     if height > 400:
-    #         # Window.size = Window.size[0], 400
-    #         return
+
 class MainApp(App):
     def build(self):
+        # Window.clearcolor = (1, 1, 1, 1)
         Window.size = (500, 500)
         Window.minimum_width, Window.minimum_height = Window.size
         return MainLayout()

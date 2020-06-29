@@ -3,8 +3,8 @@
 #:kivy 1.7.2
 #:import Factory kivy.factory.Factory
 
-#:set color_button (0.04,0.09,0.14, 1)  # brown
-#:set color_button_pressed (0.04,0.09,0.14, 1)  # darker brown
+#:set color_button (1, 0.6652, 0, 0.098, 1)  # brown
+#:set color_button_pressed (1, 0.6652, 0, 0.098, 1)  # darker brown
 #:set color_font   (0.957, 0.890, 0.843, 1)  # off white
 
 <MySpinnerOption@SpinnerOption>:
@@ -51,14 +51,13 @@
             option_cls: Factory.get("MySpinnerOption")
         Button:
             text: 'Translate'
-            background_color: 0, 0, 1, .7
+#            background_color: 0, 0, 1, .7
+            background_color: color_button if self.state == 'normal' else color_button_pressed
             on_release: result_label.text = root.translate(source=from_spinner.text,target=to_spinner.text,text=to_translate.text)
 
     Label:
         id: result_label
         font_size: 50
         font_name: 'font/arial-unicode-ms.ttf' # 'arial'
-        size: self.texture_size
-        text_size: self.size
 
 
