@@ -2,6 +2,7 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
+from kivy.uix.scrollview import ScrollView
 from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator, MyMemoryTranslator
 from bidi.algorithm import get_display
 import arabic_reshaper
@@ -65,6 +66,10 @@ class MainLayout(BoxLayout):
         except Exception as e:
             print(e.args)
             return "No translation is provided"
+
+
+class ScrollableLabel(ScrollView):
+    pass
 
 
 class MainApp(App):

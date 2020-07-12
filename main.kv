@@ -3,9 +3,9 @@
 #:kivy 1.7.2
 #:import Factory kivy.factory.Factory
 
-#:set color_button (1, 0.6652, 0, 0.098, 1)  # brown
-#:set color_button_pressed (1, 0.6652, 0, 0.098, 1)  # darker brown
-#:set color_font   (0.957, 0.890, 0.843, 1)  # off white
+#:set color_button (1, 0, 0, 1)  # brown
+#:set color_button_pressed (1, 0, 0, 1)  # darker brown
+#:set color_font   (0, 0, 0, 1)  # off white
 
 <MySpinnerOption@SpinnerOption>:
     background_color: color_button if self.state == 'down' else color_button_pressed
@@ -22,7 +22,8 @@
         size_hint: 1., .1
         background_color: color_button if self.state == 'normal' else color_button_pressed
         color: color_font
-        font_size: 20
+        font_size: 22
+
         option_cls: Factory.get("MySpinnerOption")
 
     TextInput:
@@ -39,6 +40,7 @@
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
+            font_size: 20
             option_cls: Factory.get("MySpinnerOption")
         Spinner:
             id: to_spinner
@@ -47,16 +49,30 @@
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
+            font_size: 20
             option_cls: Factory.get("MySpinnerOption")
         Button:
             text: 'Translate'
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
+            color: color_font
+            font_size: 20
             on_release: result_label.text = root.translate(translator=head_spinner.text, source=from_spinner.text, target=to_spinner.text, text=payload.text)
 
-    Label:
-        id: result_label
-        font_size: 50
-        font_name: 'font/arial-unicode-ms.ttf' # 'arial'
+#    BoxLayout:
+#        ScrollView:
+#            id: result_label
+#            font_size: 50
+#    #        size_hint: None, None
+#            text_size: root.width, None
+#            size: self.texture_size
+#            font_name: 'font/arial-unicode-ms.ttf' # 'arial'
 
-
+    ScrollView:
+        Label:
+            id: result_label
+            font_size: 50
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            font_name: 'font/arial-unicode-ms.ttf' # 'arial'
