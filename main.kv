@@ -3,13 +3,14 @@
 #:kivy 1.7.2
 #:import Factory kivy.factory.Factory
 
-#:set color_button (1, 0, 0, 1)  # brown
-#:set color_button_pressed (1, 0, 0, 1)  # darker brown
-#:set color_font   (0, 0, 0, 1)  # off white
+#:set color_button (0, 0, .7, .99)  # brown
+#:set color_button_pressed (0, 0, .4, .99)  # darker brown
+#:set color_font   (1, 1, 1, 1)  # off white
 
 <MySpinnerOption@SpinnerOption>:
     background_color: color_button if self.state == 'down' else color_button_pressed
     color: color_font
+    spacing: 5
 
 <MainLayout>
     spacing: 1
@@ -18,8 +19,8 @@
     Spinner:
         id: head_spinner
         text: 'Google Translate'
-        values: 'Google Translate', 'Pons', 'Linguee', 'My Memory'
-        size_hint: 1., .1
+        values: 'Google Translate', 'My Memory', 'Pons', 'Linguee'
+        size_hint: 1., .15
         background_color: color_button if self.state == 'normal' else color_button_pressed
         color: color_font
         font_size: 22
@@ -28,8 +29,13 @@
 
     TextInput:
         id: payload
-        size_hint: 1., .3
-#        on_text: result_label.text = root.translate(source=from_spinner.text,target=to_spinner.text,text=self.text)
+        hint_text: "Tap to enter text..."
+        focus: True
+        use_bubble: True
+        size_hint: 1., .25
+        font_size: 20
+        background_color: 0, 0, 0, 1
+        foreground_color: (1, 1, 1, 1)
     BoxLayout:
         spacing: 2
         size_hint: 1., .1
@@ -59,19 +65,10 @@
             font_size: 20
             on_release: result_label.text = root.translate(translator=head_spinner.text, source=from_spinner.text, target=to_spinner.text, text=payload.text)
 
-#    BoxLayout:
-#        ScrollView:
-#            id: result_label
-#            font_size: 50
-#    #        size_hint: None, None
-#            text_size: root.width, None
-#            size: self.texture_size
-#            font_name: 'font/arial-unicode-ms.ttf' # 'arial'
-
     ScrollView:
         Label:
             id: result_label
-            font_size: 50
+            font_size: 30
             size_hint_y: None
             height: self.texture_size[1]
             text_size: self.width, None

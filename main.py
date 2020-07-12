@@ -68,10 +68,6 @@ class MainLayout(BoxLayout):
             return "No translation is provided"
 
 
-class ScrollableLabel(ScrollView):
-    pass
-
-
 class MainApp(App):
     def build(self):
         # Window.clearcolor = (1, 1, 1, 1)
