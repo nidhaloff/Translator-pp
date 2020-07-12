@@ -17,17 +17,16 @@
     padding: 5
     Spinner:
         id: head_spinner
-        text: 'choose your translator'
-        values: 'Google Translate', 'Pons', 'Linguee'
+        text: 'Google Translate'
+        values: 'Google Translate', 'Pons', 'Linguee', 'My Memory'
         size_hint: 1., .1
         background_color: color_button if self.state == 'normal' else color_button_pressed
         color: color_font
         font_size: 20
-
         option_cls: Factory.get("MySpinnerOption")
 
     TextInput:
-        id: to_translate
+        id: payload
         size_hint: 1., .3
 #        on_text: result_label.text = root.translate(source=from_spinner.text,target=to_spinner.text,text=self.text)
     BoxLayout:
@@ -35,8 +34,8 @@
         size_hint: 1., .1
         Spinner:
             id: from_spinner
-            text: 'auto'
-            values: root.get_supported_languages(auto_included=True)
+            text: 'auto' if head_spinner.text in ['Google Translate', 'My Memory'] else 'french'
+            values: root.get_supported_languages(translator=head_spinner.text, auto_included=True)
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
@@ -44,7 +43,7 @@
         Spinner:
             id: to_spinner
             text: 'english'
-            values: root.get_supported_languages()
+            values: root.get_supported_languages(translator=head_spinner.text)
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
@@ -53,7 +52,7 @@
             text: 'Translate'
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
-            on_release: result_label.text = root.translate(source=from_spinner.text,target=to_spinner.text,text=to_translate.text)
+            on_release: result_label.text = root.translate(translator=head_spinner.text, source=from_spinner.text, target=to_spinner.text, text=payload.text)
 
     Label:
         id: result_label
