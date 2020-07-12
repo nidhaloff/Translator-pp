@@ -7,6 +7,10 @@ from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator,
 from bidi.algorithm import get_display
 import arabic_reshaper
 
+__author__ = "Nidhal Baccouri"
+__email__ = "nidhalbacc@gmail.com"
+__version__ = "1.0.0"
+
 
 class MainLayout(BoxLayout):
 
