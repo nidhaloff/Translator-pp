@@ -16,7 +16,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,ttf
 
 # (list) List of inclusions using pattern matching
-#source.include_patterns = assets/*,images/*.png
+source.include_patterns = assets/*,images/*.png, font/*.ttf
 
 # (list) Source files to exclude (let empty to not exclude anything)
 source.exclude_exts = spec, txt, md, gitignore
@@ -31,12 +31,12 @@ source.exclude_dirs = tests, bin, venv
 #version = 0.1
 
 # (str) Application versioning (method 2)
-# version.regex = __version__ = ['"](.*)['"]
- version.filename = %(source.dir)s/main.py
+version.regex = __version__ = ['"](.*)['"]
+version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy, deep-translator, arabic-reshaper, python-bidi
+requirements = hostpython3==3.7.8,python3==3.7.8,kivy==1.11.1, beautifulsoup4, bs4, certifi,chardet,docutils, future, idna, Kivy-Garden, Pygments, requests, six, soupsieve, urllib3, deep-translator, arabic-reshaper, python-bidi, openssl
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes

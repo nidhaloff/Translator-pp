@@ -7,8 +7,6 @@ from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator,
 from bidi.algorithm import get_display
 import arabic_reshaper
 
-__author__ = "Nidhal Baccouri"
-__email__ = "nidhalbacc@gmail.com"
 __version__ = "1.0.0"
 
 
@@ -75,8 +73,8 @@ class MainLayout(BoxLayout):
 class MainApp(App):
     def build(self):
         # Window.clearcolor = (1, 1, 1, 1)
-        Window.size = (700, 500)
-        Window.minimum_width, Window.minimum_height = Window.size
+        # Window.size = (700, 500)
+        # Window.minimum_width, Window.minimum_height = Window.size
         return MainLayout()
 
 
