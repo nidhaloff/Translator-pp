@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = Overall Translator
+title = Translator
 
 # (str) Package name
-package.name = overallTranslator
+package.name = translator-pp
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.nidhal.overallTranslator
+package.domain = org.translator-pp
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -16,13 +16,13 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,ttf
 
 # (list) List of inclusions using pattern matching
-source.include_patterns = assets/*,images/*.png, font/*.ttf
+source.include_patterns = assets/*,images/*.png
 
 # (list) Source files to exclude (let empty to not exclude anything)
-source.exclude_exts = spec, txt, md, gitignore
+source.exclude_exts = spec,txt,md,gitignore,git
 
 # (list) List of directory to exclude (let empty to not exclude anything)
-source.exclude_dirs = tests, bin, venv
+source.exclude_dirs = tests,bin,venv,.git
 
 # (list) List of exclusions using pattern matching
 #source.exclude_patterns = license,images/*/*.jpg
@@ -36,7 +36,7 @@ version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = hostpython3==3.7.8,python3==3.7.8,kivy==1.11.1, beautifulsoup4, bs4, certifi,chardet,docutils, future, idna, Kivy-Garden, Pygments, requests, six, soupsieve, urllib3, deep-translator, arabic-reshaper, python-bidi, openssl
+requirements = hostpython3==3.7.8,python3==3.7.8,kivy==1.11.1, beautifulsoup4, bs4, certifi,chardet,docutils, future, idna, Kivy-Garden, Pygments, requests, six, soupsieve, urllib3, deep-translator==1.0.5, arabic-reshaper, python-bidi, openssl
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -85,7 +85,7 @@ fullscreen = 0
 #android.presplash_color = #FFFFFF
 
 # (list) Permissions
-#android.permissions = INTERNET
+android.permissions = INTERNET
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27

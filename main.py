@@ -2,10 +2,9 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
-from kivy.uix.scrollview import ScrollView
 from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator, MyMemoryTranslator
-from bidi.algorithm import get_display
-import arabic_reshaper
+
+from kivy.properties import ObjectProperty
 
 __version__ = "1.0.0"
 
@@ -44,18 +43,18 @@ class MainLayout(BoxLayout):
         try:
             if translator == 'Google Translate':
                 res = GoogleTranslator(source=source, target=target).translate(text=text)
-                if target == 'arabic':
-                    res = get_display(arabic_reshaper.reshape(res))
+                # if target == 'arabic':
+                #     res = get_display(arabic_reshaper.reshape(res))
 
             elif translator == 'My Memory':
                 res = MyMemoryTranslator(source=source, target=target).translate(text=text)
-                if target == 'arabic':
-                    res = get_display(arabic_reshaper.reshape(res))
+                # if target == 'arabic':
+                #     res = get_display(arabic_reshaper.reshape(res))
 
             elif translator == 'Pons':
                 res = PonsTranslator(source=source, target=target).translate(word=text)
-                if target == 'arabic':
-                    res = get_display(arabic_reshaper.reshape(res))
+                # if target == 'arabic':
+                #     res = get_display(arabic_reshaper.reshape(res))
 
             elif translator == 'Linguee':
                 res = LingueeTranslator(source=source, target=target).translate(word=text)
@@ -70,7 +69,8 @@ class MainLayout(BoxLayout):
             return "No translation is provided"
 
 
-class MainApp(App):
+class TranslatorApp(App):
+
     def build(self):
         # Window.clearcolor = (1, 1, 1, 1)
         # Window.size = (700, 500)
@@ -79,4 +79,4 @@ class MainApp(App):
 
 
 if __name__ == '__main__':
-    MainApp().run()
+    TranslatorApp().run()

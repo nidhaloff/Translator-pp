@@ -1,4 +1,3 @@
-python_bidi==0.4.2
+deep-translator==1.0.3
 Kivy==1.11.1
-arabic_reshaper==2.0.15
-deep_translator==1.0.3
+Kivy-Garden==0.1.4

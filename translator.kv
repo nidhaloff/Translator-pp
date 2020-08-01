@@ -10,21 +10,21 @@
 <MySpinnerOption@SpinnerOption>:
     background_color: color_button if self.state == 'down' else color_button_pressed
     color: color_font
-    spacing: 5
+    spacing: 10
 
 <MainLayout>
-    spacing: 1
+    spacing: 10
     orientation: 'vertical'
-    padding: 5
+    padding: 10
+#    on_key_up: root._key_up(*args)
     Spinner:
         id: head_spinner
         text: 'Google Translate'
         values: 'Google Translate', 'My Memory', 'Pons', 'Linguee'
-        size_hint: 1., .15
+        size_hint: 1., .20
         background_color: color_button if self.state == 'normal' else color_button_pressed
         color: color_font
-        font_size: 22
-
+        font_size: dp(30)
         option_cls: Factory.get("MySpinnerOption")
 
     TextInput:
@@ -32,13 +32,13 @@
         hint_text: "Tap to enter text..."
         focus: True
         use_bubble: True
-        size_hint: 1., .25
-        font_size: 20
+        size_hint: 1., .20
+        font_size: dp(30)
         background_color: 0, 0, 0, 1
         foreground_color: (1, 1, 1, 1)
     BoxLayout:
-        spacing: 2
-        size_hint: 1., .1
+        spacing: 5
+        size_hint: 1., .15
         Spinner:
             id: from_spinner
             text: 'auto' if head_spinner.text in ['Google Translate', 'My Memory'] else 'french'
@@ -46,7 +46,7 @@
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
-            font_size: 20
+            font_size: dp(20)
             option_cls: Factory.get("MySpinnerOption")
         Spinner:
             id: to_spinner
@@ -55,21 +55,23 @@
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
-            font_size: 20
+            font_size: dp(20)
             option_cls: Factory.get("MySpinnerOption")
         Button:
-            text: 'Translate'
+            id: translate_btn
+            text: 'translate'
 #            background_color: 0, 0, 1, .7
             background_color: color_button if self.state == 'normal' else color_button_pressed
             color: color_font
-            font_size: 20
+            font_size: dp(20)
             on_release: result_label.text = root.translate(translator=head_spinner.text, source=from_spinner.text, target=to_spinner.text, text=payload.text)
 
     ScrollView:
         Label:
             id: result_label
-            font_size: 30
+            font_size: dp(50)
+            pos_hint_x: 0.3
             size_hint_y: None
             height: self.texture_size[1]
             text_size: self.width, None
-            font_name: 'font/arial-unicode-ms.ttf' # 'arial'
+            font_name: 'arial-unicode-ms.ttf' # 'arial'
