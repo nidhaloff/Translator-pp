@@ -6,7 +6,7 @@ from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator,
 
 from kivy.properties import ObjectProperty
 
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 
 
 class MainLayout(BoxLayout):

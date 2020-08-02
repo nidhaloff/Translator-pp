@@ -4,10 +4,10 @@
 title = Translator
 
 # (str) Package name
-package.name = translator-pp
+package.name = translator
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.translator-pp
+package.domain = org.translator
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -88,7 +88,7 @@ fullscreen = 0
 android.permissions = INTERNET
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 27
+android.api = 29
 
 # (int) Minimum API your APK will support.
 #android.minapi = 21
@@ -194,7 +194,7 @@ android.permissions = INTERNET
 # (list) Android additional libraries to copy into libs/armeabi
 #android.add_libs_armeabi = libs/android/*.so
 #android.add_libs_armeabi_v7a = libs/android-v7/*.so
-#android.add_libs_arm64_v8a = libs/android-v8/*.so
+android.add_libs_arm64_v8a = libs/android-v8/*.so
 #android.add_libs_x86 = libs/android-x86/*.so
 #android.add_libs_mips = libs/android-mips/*.so
 
@@ -219,7 +219,7 @@ android.permissions = INTERNET
 #android.copy_libs = 1
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
-android.arch = armeabi-v7a
+android.arch = arm64-v8a
 
 #
 # Python for android (p4a) specific
