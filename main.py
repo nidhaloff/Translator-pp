@@ -1,12 +1,9 @@
 
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.core.window import Window
 from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator, MyMemoryTranslator
 
-from kivy.properties import ObjectProperty
-
-__version__ = "1.0.2"
+__version__ = "1.0.0"
 
 
 class MainLayout(BoxLayout):

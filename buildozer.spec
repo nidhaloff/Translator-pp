@@ -36,7 +36,7 @@ version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = hostpython3==3.7.8,python3==3.7.8,kivy==1.11.1, beautifulsoup4, bs4, certifi,chardet,docutils, future, idna, Kivy-Garden, Pygments, requests, six, soupsieve, urllib3, deep-translator==1.0.5, arabic-reshaper, python-bidi, openssl
+requirements = hostpython3==3.7.8,python3==3.7.8,kivy==1.11.1, beautifulsoup4, bs4, certifi,chardet,docutils, future, idna, Kivy-Garden, Pygments, requests, six, soupsieve, urllib3, deep-translator==1.0.5
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
